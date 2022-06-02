@@ -43,6 +43,17 @@ public interface TotalCostConfig extends Config
 
 	@ConfigItem(
 		position = 4,
+		keyName = "showAvg",
+		name = "Show average cost",
+		description = "Enable message stating the average cost"
+	)
+	default boolean showAvg()
+	{
+		return true;
+	}
+
+	@ConfigItem(
+		position = 5,
 		keyName = "highlightColor",
 		name = "Highlight Color",
 		description = "Set the highlight color for messages."

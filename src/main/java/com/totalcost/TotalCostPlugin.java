@@ -97,19 +97,23 @@ public class TotalCostPlugin extends Plugin
 						buyAllCost += priceFromQuantity;
 					}
 
+					String itemString = addColorTags(item.getName());
+					String quantityString = addColorTags(String.valueOf(item.getQuantity()));
+					client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", "Total cost for " + itemString + " with " + quantityString + " in stock:", null);
+
 					if (config.buyTen() && item.getQuantity() >= 10)
 					{
-						generateChatMessage("10", (int) buyTenCost);
+						generateChatMessage(10, (int) buyTenCost);
 					}
 
 					if (config.buyFifty() && item.getQuantity() >= 50)
 					{
-						generateChatMessage("50", (int) buyFiftyCost);
+						generateChatMessage(50, (int) buyFiftyCost);
 					}
 
 					if (config.buyAll())
 					{
-						generateChatMessage("All", (int) buyAllCost);
+						generateChatMessage(item.getQuantity(), (int) buyAllCost);
 					}
 				}
 			}
@@ -158,13 +162,20 @@ public class TotalCostPlugin extends Plugin
 		return (highAlchPrice * 5) / 3;
 	}
 
-	private void generateChatMessage(String amount, int cost)
+	private void generateChatMessage(int quantity, int cost)
 	{
 		if (item.getQuantity() > 0)
 		{
-			String coloredAmount = addColorTags(amount);
+			String coloredAmount = addColorTags(String.valueOf(quantity));
 			String coloredCost = addColorTags(String.valueOf(cost));
-			String message = "Buy " + coloredAmount + " price (Qty: " + item.getQuantity() + "): ~" + coloredCost + " coins.";
+			String average = String.valueOf(cost / quantity);
+			average = addColorTags(average);
+			String message = "Buy " + coloredAmount + " price: ~" + coloredCost + " coins.";
+			if (config.showAvg())
+			{
+				message += " (Avg: " + average + ")";
+			}
+
 			client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", message, null);
 		}
 	}
