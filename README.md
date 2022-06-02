@@ -19,5 +19,8 @@ A plugin for [RuneLite](https://github.com/runelite/runelite) which calculates t
 - The total cost for all quantites is approximate and cannot be calculated perfectly due to rounding errors. It's usually pretty close, though.
 
 ## Version history
+- v1.1
+  - Added new string to contextualize the amount in stock
+  - Added option to display average price
 - v1.0
   - Initial release
