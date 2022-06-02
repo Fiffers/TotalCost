@@ -13,6 +13,7 @@ A plugin for [RuneLite](https://github.com/runelite/runelite) which calculates t
 - **Buy 10 cost:** Enables message stating the total cost when purchasing 10 of an item.
 - **Buy 50 cost:** Enables message stating the total cost when purchasing 50 of an item.
 - **Buy all cost:** Enables message stating the total cost when purchasing all of an item.
+- **Show average cost:** Enables message stating the average cost.
 - **Highlight Color:** Changes the color that particular parts of the chat message will be colored.
 
 ## Notes
